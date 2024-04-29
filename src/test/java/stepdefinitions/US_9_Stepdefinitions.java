@@ -43,16 +43,6 @@ public class US_9_Stepdefinitions {
         // Enter tuşuna basarak seçiciyi kapat
         endDateInput.sendKeys(Keys.ENTER);
 
-        //  // Başlangıç tarihini seçin
-     //  WebElement startDateInput = driver.findElement(By.id("filter_s_date"));
-     //  startDateInput.clear();
-     //  startDateInput.sendKeys("01/01/2024");
-
-     //  // Bitiş tarihini seçin
-     //  WebElement endDateInput = driver.findElement(By.id("filter_e_date"));
-     //  endDateInput.clear();
-     //  endDateInput.sendKeys("17/03/2024");
-
         pageHYBS.cezaTaahhütSEARCH_EKLEYEN_KISI.sendKeys("Özgür");
 
 
@@ -60,7 +50,8 @@ public class US_9_Stepdefinitions {
         ReusableMethods.selectCompany(pageHYBS.companyList_DROPDOWN,pageHYBS.companyList_DROPDOWN_ıNPUT,"SUNGUR İNŞAAT(HALİL BEY)");
 
         pageHYBS.cezaTaahhütSEARCH_VEHICLEDROPDOWN.click();
-        pageHYBS.cezaTaahhütSEARCH_VEHICLEDROPDOWN_INPUT.sendKeys(""+Keys.ENTER);
+        pageHYBS.cezaTaahhütSEARCH_VEHICLEDROPDOWN_INPUT.sendKeys("FİRMA ARACI GELMİYOR BU VAR"+Keys.ENTER);
+        ReusableMethods.wait(3);
 
         pageHYBS.cezaTaahhütSEARCH_arabutton.click();
 
@@ -80,7 +71,6 @@ public class US_9_Stepdefinitions {
          String actual=pageHYBS.cezaTaahhütCEZA_LIST_geldimi.getText();
 
          ReusableMethods.wait(3);
-
          Assert.assertTrue(actual.contains(expected));
 
 
