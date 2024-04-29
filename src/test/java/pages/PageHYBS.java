@@ -841,7 +841,7 @@ public class PageHYBS {
 
     @FindBy(xpath = "(//a[@title=\"Görüntüle\"])[1]")
     public WebElement cezaTaahhütCEZA_GORUNTULEBUTTON;
-    @FindBy(xpath = "//h4[text()=\"Doküman Görüntüle\"]")
+    @FindBy(xpath = "//table[@id=\"show_picture_dt\"]")
     public WebElement cezaTaahhütCEZA_RESIMGORUNDUMU;
 
     @FindBy(xpath = "(//i[@class=\"fa fa-upload\"])[1]")
@@ -1078,7 +1078,7 @@ public class PageHYBS {
     @FindBy(xpath = "(//i[@class=\"fa fa-close\"])[2]")
     public WebElement Yapı_Ruhsatı_Talebi_SIL;
 
-    @FindBy(xpath = "//*[@id=\"datatable_fixed_column\"]/tbody/tr[2]/td[8]/div[2]/a[2]")
+    @FindBy(xpath = "(//i[@class=\"fa fa-eye\"])[2]")
     public WebElement Yapı_Ruhsatı_Talebi_EK2;
 
     @FindBy(xpath = "(//i[@class=\"fa fa-edit\"])[2]")

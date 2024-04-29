@@ -211,7 +211,7 @@ public class US_9_Stepdefinitions {
         pageHYBS.cezaTaahhütCEZA_GUNCELLEME_zabıtaAcıklama.sendKeys("Deniyoruz");
         pageHYBS.cezaTaahhüt_YENICEZADOKUMANEKLE.sendKeys("Yeni ceza ekleniyor");
 
-        WebElement dosyaSecButonu = driver.findElement(By.xpath("(//input[@id=\"id_path\"])[1]"));
+
         /*
           dosya sec butonuna bastiktan sonra
           bilgisayardan selenium ile dosya secmemiz mumkun degil
@@ -219,6 +219,8 @@ public class US_9_Stepdefinitions {
           dosyaSecButonu.sendKeys("DosyaYolu") yaparsak
           dosya secme islemi yapilmis olacaktir
          */
+
+        WebElement dosyaSecButonu = driver.findElement(By.xpath("(//input[@id=\"id_path\"])[1]"));
 
         String yuklenecekDosyaYolu = System.getProperty("user.home") +
                 "\\Desktop\\resimler\\deneme.jpeg";
