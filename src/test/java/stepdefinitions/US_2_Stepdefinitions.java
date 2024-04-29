@@ -166,6 +166,7 @@ public class US_2_Stepdefinitions {
         pageHYBS.kucukaraclink.click();
         ReusableMethods.wait(2);
         Assert.assertTrue(pageHYBS.kucukaracislemleri.isDisplayed());
+        pageHYBS.kucukaraclink.click();
 
 
     }

@@ -9,7 +9,7 @@ import utilities.ReusableMethods;
 
 public class US_1_Stepdefinitions {
 
-    PageHYBS pageTrend=new PageHYBS();
+    PageHYBS pageHYBS =new PageHYBS();
 
 
     @Given("Login to HYBS site, click the Login button and log in with your User information.")

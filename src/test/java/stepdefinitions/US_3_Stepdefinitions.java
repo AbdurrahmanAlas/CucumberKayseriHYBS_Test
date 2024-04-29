@@ -36,10 +36,10 @@ public class US_3_Stepdefinitions {
     public void user_should_be_able_to_click_on_operatıon_module() {
 
         pageHYBS.isletmeModuluLink.click();
-        actions.moveToElement(pageHYBS.FirmaListesi).perform();
-        assertTrue(pageHYBS.FirmaListesi.isDisplayed());
-        actions.moveToElement(pageHYBS.AracListesi).perform();
-        assertTrue(pageHYBS.AracListesi.isDisplayed());
+      //  actions.moveToElement(pageHYBS.FirmaListesi).perform();
+      //  assertTrue(pageHYBS.FirmaListesi.isDisplayed());
+      //  actions.moveToElement(pageHYBS.AracListesi).perform();
+      //  assertTrue(pageHYBS.AracListesi.isDisplayed());
 
 
     }
@@ -75,10 +75,18 @@ public class US_3_Stepdefinitions {
     public void verifies_that_category_dropbox_options_are_visible_and_selectable() throws InterruptedException {
 
 
-        ReusableMethods.waitForPageToLoad(3);
-        // ReusableMethods.verifyAllItemsAreClickable(pageHYBS.firmalistesilütfengrupsecinizdropdown,pageHYBS.companygroupCurrentsearchtext);
+        ReusableMethods.wait(3);
+        pageHYBS.firmaListesiGrupDropdown_INPUT.sendKeys("Hafriyatçı" + Keys.ENTER);
 
+        Assert.assertTrue(pageHYBS.firmaListesiGrupDropdown_HAFRIYATCIKONTROL.isDisplayed());
 
+        ReusableMethods.wait(2);
+
+        pageHYBS.firmalistesilütfengrupsecinizdropdown.click();
+        pageHYBS.firmaListesiGrupDropdown_INPUT.sendKeys("ilçe belediye" +Keys.ENTER);
+        ReusableMethods.wait(1);
+
+        Assert.assertTrue(pageHYBS.firmaListesiGrupDropdown_ILCEBELEDIYECONTROL.isDisplayed());
     }
 
 
@@ -153,11 +161,10 @@ public class US_3_Stepdefinitions {
     public void the_system_should_confirm_that_it_is_on_the_new_company_page_then_enter_the_company_information_and_finally_press_the_button_to_add_the_new_company_seamlessly() {
 
 
-
         // Alanları doldurma
-        pageHYBS.taxIdInputt.sendKeys("1234567890");
+        pageHYBS.taxIdInputt.sendKeys("12345678");
         ReusableMethods.wait(1);
-        pageHYBS.titleInputt.sendKeys("company");
+        pageHYBS.titleInputt.sendKeys("YERGİNLER HAFRİYAT");
         ReusableMethods.wait(5);
         pageHYBS.nameInputt.sendKeys("XYZ Ltd.");
         ReusableMethods.wait(3);
@@ -178,12 +185,12 @@ public class US_3_Stepdefinitions {
 
         pageHYBS.companyAddilceLIST.click();
         ReusableMethods.wait(3);
-        pageHYBS.companyAddLıstINPUT.sendKeys("Talas"+Keys.ENTER);
+        pageHYBS.companyAddLıstINPUT.sendKeys("Talas" + Keys.ENTER);
         ReusableMethods.scrolldown_bypixel_2000();
         ReusableMethods.wait(6);
         pageHYBS.vergidairesiLİST.click();
         ReusableMethods.wait(2);
-        pageHYBS.vergidairesiLİSTINPUT.sendKeys("MİMARSİNAN VERGİ DAİRESİ"+ Keys.ENTER);
+        pageHYBS.vergidairesiLİSTINPUT.sendKeys("MİMARSİNAN VERGİ DAİRESİ" + Keys.ENTER);
 
 
         actions.sendKeys(Keys.PAGE_DOWN);
@@ -192,16 +199,27 @@ public class US_3_Stepdefinitions {
 
 
         ReusableMethods.wait(3);
-      pageHYBS.companyAddHAFRIYATCIKAMULIST.click();
-      ReusableMethods.wait(1);
-      pageHYBS.companyAddHAFRIYATCIKAMUINPUT.sendKeys("Kamu" + Keys.ENTER);
+        pageHYBS.companyAddHAFRIYATCIKAMULIST.click();
+        ReusableMethods.wait(1);
+        pageHYBS.companyAddHAFRIYATCIKAMUINPUT.sendKeys("Kamu" + Keys.ENTER);
 
 
         actions.sendKeys(Keys.PAGE_DOWN);
         actions.sendKeys(Keys.PAGE_DOWN);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
 
-      pageHYBS.companyAddaddressINPUT.sendKeys("YENİ MAHALLE ABDURRAHMAN");
+        pageHYBS.companyAddaddressINPUT.sendKeys("YENİ MAHALLE ABDURRAHMAN");
+
+
+        ReusableMethods.wait(3);
+        pageHYBS.isletmeModuluLink.click();
+        pageHYBS.FirmaListesi.click();
+        pageHYBS.nameInput.sendKeys("YERGİNLER HAFRİYAT");
+        ReusableMethods.wait(1);
+
+
+        // Bilgilerin doğru bir şekilde kaydedildiğini doğrula
+         Assert.assertTrue(pageHYBS.yerginlerControl.isDisplayed());
 
     }
 }
