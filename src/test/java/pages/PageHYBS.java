@@ -145,6 +145,24 @@ public class PageHYBS {
     @FindBy(xpath = "//a[text()=\"Kullanıcı Listesi\"]")
     public WebElement kullanicilistesi;
 
+    @FindBy(xpath = "//span[@class=\"select2-selection__rendered\"]")
+    public WebElement firmaListesiGrupDropdown;
+
+    @FindBy(xpath = "//input[@class=\"select2-search__field\"]")
+    public WebElement firmaListesiGrupDropdown_INPUT;
+
+    @FindBy(xpath = "//td[text()=\"ADEM BÖLÜKBAŞ\"]")
+    public WebElement firmaListesiGrupDropdown_HAFRIYATCIKONTROL;
+
+    @FindBy(xpath = "//td[text()=\"HACILAR BELEDİYESİ\"]")
+    public WebElement firmaListesiGrupDropdown_ILCEBELEDIYECONTROL;
+
+
+
+
+
+
+
 
     @FindBy(xpath = "//a[text()=\"Log Listesi\"]")
     public WebElement loglistesi;
@@ -209,10 +227,10 @@ public class PageHYBS {
     public WebElement cleancompanyEVET;
 
 
-    @FindBy(xpath = "//*[@id=\"company_form\"]/fieldset/div[1]/div[1]/div/div")
+    @FindBy(xpath = "(//input[@class=\"form-control filter-input\"])[1]")
     public WebElement nameInput;
 
-    @FindBy(xpath = "//*[@id=\"company_form\"]/fieldset/div[3]/div[1]/div/div")
+    @FindBy(xpath = "(//input[@class=\"form-control filter-input\"])[2]")
     public WebElement phoneInput;
 
     @FindBy(id = "province_filter")
@@ -267,6 +285,13 @@ public class PageHYBS {
     public WebElement eposta;
     @FindBy(id = "save")
     public WebElement saveButton;
+
+
+    @FindBy(xpath = "//td[text()=\"YERGİNLER HAFRİYAT\"]")
+    public WebElement yerginlerControl;
+
+
+
 
     // Footer buttons
     @FindBy(xpath = "//footer[@id='add_footer']//button[@type='reset']")
@@ -720,6 +745,10 @@ public class PageHYBS {
 
     @FindBy(xpath = "//ul[@id=\"myTab2\"]")
     public WebElement gotoCompanyGELDIMI;
+
+
+    @FindBy(xpath = "(//a[@class=\"label label-success \"])[1]")
+    public WebElement gotoVehicleDetay;
 
 
     @FindBy(xpath = "//i[@class=\"fa fa-eye\"]")
