@@ -39,7 +39,7 @@ public class US_11_Stepdefinitions {
         pageHYBS.manuelBakiyeDüsümüOLUSTURBUTTON.click();
 
 // Şirket seçme işlemi doğru bir şekilde gerçekleştirilmiş mi?
-        WebElement selectedOption = pageHYBS.companyList_DROPDOWN; // Gerçek bir metot
+        WebElement selectedOption = pageHYBS.companyList_DROPDOWN;
         String selectedCompanyName = selectedOption.getText();
         Assert.assertEquals("Deneme", selectedCompanyName);
 

@@ -11,3 +11,12 @@
       * User should be able to click Search Ada-Parcel
       * When the user clicks on the business type dropdown, the required business type should be selectable.
       * Test whether the relevant parcel number and business type are correct in the search results
+
+
+           #    Senaryo: TC_0801 'Ada Parsel Sorgulama' başlığına tıklandığında sayfanın parsel numarası ve parsel numarasına göre doğru sorgulama yapması gerekmektedir.
+           #      HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+           #      * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+           #      * Kullanıcı ADA-PARSEL'e tıklayabilmelidir
+           #      * Kullanıcı Ada-Parsel Ara butonuna basabilmelidir.
+           #      * Kullanıcı işletme türü açılır menüsüne tıkladığında gerekli işletme türü seçilebilir olmalıdır.
+           #      * Arama sonuçlarında ilgili parsel numarası ve işletme tipinin doğru olup olmadığını test edin

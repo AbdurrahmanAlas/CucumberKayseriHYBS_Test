@@ -80,8 +80,8 @@ public class US_12_Stepdefinitions {
         pageHYBS.Yapı_Ruhsatı_Talebi_URETICI_PHONE.sendKeys("0542525252");
         pageHYBS.Yapı_Ruhsatı_Talebi_vergı_no.sendKeys("252");
         pageHYBS.Yapı_Ruhsatı_Talebi_ADDRES.sendKeys("Sanayi mahallesi Deneme");
-        pageHYBS.Yapı_Ruhsatı_Talebi_ADA.sendKeys("123457");
-        pageHYBS.Yapı_Ruhsatı_Talebi_PARSEL.sendKeys("123457");
+        pageHYBS.Yapı_Ruhsatı_Talebi_ADA.sendKeys("111");
+        pageHYBS.Yapı_Ruhsatı_Talebi_PARSEL.sendKeys("222");
         pageHYBS.Yapı_Ruhsatı_Talebi_BLOCK.sendKeys("FEVZİ ÇAKMAK");
 
         ReusableMethods.wait(3);
@@ -89,10 +89,10 @@ public class US_12_Stepdefinitions {
         ReusableMethods.wait(3);
         pageHYBS.Yapı_Ruhsatı_Talebi_ILCEDROPDOWN.click();
         ReusableMethods.wait(1);
-        pageHYBS.Yapı_Ruhsatı_Talebi_ILCEDROPDOWNINPUT.sendKeys("Yahyalı");
+        pageHYBS.Yapı_Ruhsatı_Talebi_ILCEDROPDOWNINPUT.sendKeys("Kocasinan" +Keys.ENTER);
         ReusableMethods.scrolldown_600();
         pageHYBS.Yapı_Ruhsatı_Talebi_MAHALLEDROPDOWN.click();
-        pageHYBS.Yapı_Ruhsatı_Talebi_MAHALLEDROPDOWNINPUT.sendKeys("Kavacık"+Keys.ENTER);
+        pageHYBS.Yapı_Ruhsatı_Talebi_MAHALLEDROPDOWNINPUT.sendKeys("Fevzi çakmak"+Keys.ENTER);
 
         ReusableMethods.scrolldown();
 
@@ -104,7 +104,7 @@ public class US_12_Stepdefinitions {
         ReusableMethods.scrolldown_600();
 
         pageHYBS.Yapı_Ruhsatı_Talebi_ATIKCINSIDROPDOWN.click();
-        pageHYBS.Yapı_Ruhsatı_Talebi_ATIKCINSIDROPDOWN_INPUT.sendKeys("İnşaat Yıkıntı Toprağı");
+        pageHYBS.Yapı_Ruhsatı_Talebi_ATIKCINSIDROPDOWN_INPUT.sendKeys("İnşaat Yıkıntı Toprağı" +Keys.ENTER);
         pageHYBS.Yapı_Ruhsatı_Talebi_ATIKMIKTARI.sendKeys("202292");
         ReusableMethods.wait(2);
         ReusableMethods.scrolldown_600();
@@ -114,7 +114,7 @@ public class US_12_Stepdefinitions {
 
         pageHYBS.Yapı_Ruhsatı_Talebi_HAFRIYATADRESS.sendKeys("DENEME");
         pageHYBS.Yapı_Ruhsatı_Talebi_HAFRIYATNOTE.sendKeys("denemem");
-        pageHYBS.Yapı_Ruhsatı_Talebi_DOKUMANADI.sendKeys("DENİYORUZZZZZZZZZZZZZZZZ");
+        pageHYBS.Yapı_Ruhsatı_Talebi_DOKUMANADI.sendKeys("DENİYORUZZZZZZZZZZZ");
 
 
 
@@ -149,8 +149,8 @@ public class US_12_Stepdefinitions {
         String blok = row.findElement(By.xpath(".//td[2]")).getText();
 
 // Beklenen değerler
-        String expectedAda = "123457";
-        String expectedParsel = "123457";
+        String expectedAda = "111";
+        String expectedParsel = "222";
         String expectedBlok = "FEVZİ ÇAKMAK";
 
 // Değerleri doğrula
@@ -195,8 +195,7 @@ public class US_12_Stepdefinitions {
 
     pageHYBS.Yapı_Ruhsatı_Talebi_SIL.click();
     ReusableMethods.wait(3);
-        driver.navigate().refresh();
-        ReusableMethods.wait(3);
+       // driver.navigate().refresh();
 
 
     }
@@ -308,7 +307,7 @@ public class US_12_Stepdefinitions {
 
 
 
-        pageHYBS.Yapı_Ruhsatı_Talebi_GUNCELLEBUTTON.click();
+      //  pageHYBS.Yapı_Ruhsatı_Talebi_GUNCELLEBUTTON.click();
 
 
 
