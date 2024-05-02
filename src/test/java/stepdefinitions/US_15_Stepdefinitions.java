@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.PageHYBS;
@@ -42,8 +43,8 @@ public class US_15_Stepdefinitions {
     public void enter_information_about_the_vehicle_to_be_added_and_verify_that_the_addition_has_been_made() {
 
 
-        pageHYBS.plateInput.sendKeys("Deneme yapıy");
-        pageHYBS.kucukAractaxId.sendKeys("1234567890");
+        pageHYBS.plateInput.sendKeys("38 RL 433");
+        pageHYBS.kucukAractaxId.sendKeys("12345678944");
 
         pageHYBS.kucukAracnameInput.sendKeys("Deneme");
 
@@ -59,45 +60,111 @@ public class US_15_Stepdefinitions {
         pageHYBS.kucukAracTipigmail.sendKeys("deneme@gmali.com");
         // Diğer form alanlarını doldur...
 
-        pageHYBS.kucukAracTipiEKLEBUTTON.click();
-        ReusableMethods.wait(6);
+        // pageHYBS.kucukAracTipiEKLEBUTTON.click();
+        ReusableMethods.wait(3);
 
         pageHYBS.kucukaraclink.click();
         pageHYBS.KucukAracIslemleriLink.click();
 
 
+        Assert.assertTrue(pageHYBS.kucukAracPlakaGeldimi.isDisplayed());
+        Assert.assertTrue(pageHYBS.kucukAractaxIDgeldimi.isDisplayed());
+    }
+
+
+    @Given("click on the Kucuk_AracIncelebutton")
+    public void click_on_the_kucuk_arac_ıncelebutton() {
+
+        pageHYBS.kucukAracislemleriINCELEBUTTON.click();
+
+
+    }
+    @Given("click on the Kucuk_AracGuncellbutton")
+    public void click_on_the_kucuk_arac_guncellbutton() {
+       pageHYBS.kucukAracislemleriGUNCELLEBUTTON.click();
+
+    }
+    @Given("It should be verified that it can be updated")
+    public void ıt_should_be_verified_that_it_can_be_updated() {
+
+        pageHYBS.plateInput.clear();
+        pageHYBS.plateInput.sendKeys("38 RL 352");
+        pageHYBS.kucukAractaxId.clear();
+        pageHYBS.kucukAractaxId.sendKeys("12345678944");
+
+        pageHYBS.kucukAracnameInput.clear();
+        pageHYBS.kucukAracnameInput.sendKeys("Deneme");
+
+        pageHYBS.kucukAracSurnameInput.clear();
+        pageHYBS.kucukAracSurnameInput.sendKeys("denemeyapıyoruz");
+
+
         ReusableMethods.wait(3);
-        // Listede kontrol et
+        pageHYBS.kucukAracTipiDropdownn.click();
+        pageHYBS.kucukAracTipiDropdownnInput.sendKeys("kamyonet" + Keys.ENTER);
 
-        // Listeyi kontrol et
-        boolean isInfoCorrect = checkList("Deneme yapıy", "1234567890", "Deneme", "Doe");
 
-        // Doğrulama
-        assertTrue(isInfoCorrect);
-    }
+        pageHYBS.kucukAracTipiTelefon.sendKeys("05422522325");
+        pageHYBS.kucukAracTipigmail.sendKeys("deneme@gmali.com");
+        // Diğer form alanlarını doldur...
 
-    public boolean checkList(String plate, String taxId, String name, String surname) {
-        // Listede kontrol et
-        List<WebElement> rows = driver.findElements(By.xpath("//table[@id='sm_list_dt']//tr"));
-        boolean found = false;
-        for (WebElement row : rows) {
-            List<WebElement> cells = row.findElements(By.tagName("td"));
-            if (cells.size() >= 4) {
-                String cellPlate = cells.get(0).getText();
-                String cellTaxId = cells.get(1).getText();
-                String cellName = cells.get(2).getText();
-                String cellSurname = cells.get(3).getText();
-                if (cellPlate.equals(plate) && cellTaxId.equals(taxId) && cellName.equals(name) && cellSurname.equals(surname)) {
-                    found = true;
-                    break;
-                }
-            }
-        }
-        return found;
+         pageHYBS.kucukAracTipiGUNCELLEBUTTON.click();
+        ReusableMethods.wait(3);
 
+        pageHYBS.kucukaraclink.click();
+        pageHYBS.KucukAracIslemleriLink.click();
+
+
+        Assert.assertTrue(pageHYBS.kucukAracGuncelPlakaGeldimi.isDisplayed());
+        Assert.assertTrue(pageHYBS.kucukAractaxIDgeldimi.isDisplayed());
     }
 
 
+    @Given("click on the document_button")
+    public void click_on_the_document_button() {
 
+        pageHYBS.kucukAracislemleriBELGELERLINK.click();
+
+
+    }
+    @Given("Document information must be entered and verified that it has been entered correctly.")
+    public void document_information_must_be_entered_and_verified_that_it_has_been_entered_correctly() {
+
+ pageHYBS.kucukAracislemleriBELGELERNAME.sendKeys("DenemeBelge");
+
+        Select select=new Select(pageHYBS.kucukAracislemleriBELGELERDROPDOWNKISI);
+        select.selectByIndex(2);
+
+        WebElement dosyaSecButonu = driver.findElement(By.xpath("(//input[@id=\"id_path\"])[1]"));
+
+        String yuklenecekDosyaYolu = System.getProperty("user.home") +
+                "\\Desktop\\resimler\\deneme.jpeg";
+
+        dosyaSecButonu.sendKeys(yuklenecekDosyaYolu);
+
+        ReusableMethods.wait(2);
+
+        pageHYBS.kucukAracislemleriBELGELERekleButton.click();
+        ReusableMethods.wait(2);
+        Assert.assertTrue(pageHYBS.kucukAracislemleriBELGELEREKLENDIMICONTROL.isDisplayed());
+
+    }
+
+
+    @Given("An entered document should be able to be deleted")
+    public void an_entered_document_should_be_able_to_be_deleted() {
+
+
+        pageHYBS.kucukAracislemleriBELGELER_deleteButton.click();
+        //burda delete butonu yok BUG VAR
+
+    }
 }
+
+
+
+
+
+
+
 

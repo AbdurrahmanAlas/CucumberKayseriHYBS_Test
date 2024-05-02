@@ -1302,6 +1302,66 @@ public class PageHYBS {
     @FindBy(xpath = "(//button[text()=\"Ekle\"])[1]")
     public WebElement kucukAracTipiEKLEBUTTON;
 
+    @FindBy(xpath = "(//button[text()=\"Güncelle\"])[2]")
+    public WebElement kucukAracTipiGUNCELLEBUTTON;
+
+
+//td[text()="38RL433"]
+
+
+    @FindBy(xpath = "//td[text()=\"38RL433\"]")
+    public WebElement kucukAracPlakaGeldimi;
+
+    @FindBy(xpath = "//td[text()=\"38RL352\"]")
+    public WebElement kucukAracGuncelPlakaGeldimi;
+
+    @FindBy(xpath = "//td[text()=\"12345678944\"]")
+    public WebElement kucukAractaxIDgeldimi;
+
+
+    @FindBy(xpath = "(//i[@class=\"fa fa-eye\"])[2]")
+    public WebElement kucukAracislemleriINCELEBUTTON;
+
+    @FindBy(xpath = "//button[@id=\"edit_button\"]")
+    public WebElement kucukAracislemleriGUNCELLEBUTTON;
+
+    @FindBy(xpath = "//a[@id=\"document_tab\"]")
+    public WebElement kucukAracislemleriBELGELERLINK;
+
+    @FindBy(xpath = "//input[@id=\"name\"]")
+    public WebElement kucukAracislemleriBELGELERNAME;
+
+    @FindBy(xpath = "//select[@name=\"type\"]")
+    public WebElement kucukAracislemleriBELGELERDROPDOWNKISI;
+
+    @FindBy(xpath = "//button[@id=\"uploadDocument\"]")
+    public WebElement kucukAracislemleriBELGELERekleButton;
+
+    @FindBy(xpath = "//td[text()=\"DenemeBelge\"]")
+    public WebElement kucukAracislemleriBELGELEREKLENDIMICONTROL;
+
+
+    @FindBy(xpath = "//button[@id=\"delete_button\"]")
+    public WebElement kucukAracislemleriBELGELER_deleteButton;
+
+
+    @FindBy(xpath = "//select[@id=\"listJob\"]")
+    public WebElement yapiRuhsatliIsSurecleri_ARAMADROPDOWNLISTESECENEGI;
+
+    @FindBy(xpath = "//select[@id=\"listState\"]")
+    public WebElement yapiRuhsatliIsSurecleri_ARAMADROPDOWNISLEMSECENEGI;
+
+    @FindBy(xpath = "//input[@id=\"search_input\"]")
+    public WebElement yapiRuhsatliIsSurecleri_ARAMAINPUT;
+
+
+
+
+
+
+
+
+
 
 
 
