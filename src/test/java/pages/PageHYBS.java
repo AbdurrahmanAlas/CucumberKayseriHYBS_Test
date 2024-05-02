@@ -1355,8 +1355,27 @@ public class PageHYBS {
     public WebElement yapiRuhsatliIsSurecleri_ARAMAINPUT;
 
 
+    @FindBy(xpath = "//i[@class=\"fa fa-eye\"]")
+    public WebElement yapiRuhsatliIsSurecleri_GORUNTULE;
+
+    @FindBy(xpath = "//td[text()=\": 5710 \"] ")
+    public WebElement yapiRuhsatliIsSurecleri_arananbulundumu;
+
+    @FindBy(xpath = "(//i[@class=\"fa fa-eye\"])[1]")
+    public WebElement hariciKaziisSurecleri_GORUNTULE;
+
+    @FindBy(xpath = "//select[@id=\"listJob\"]")
+    public WebElement hariciKaziIsSurecleri_ARAMADROPDOWNLISTESECENEGI;
+
+    @FindBy(xpath = "//select[@id=\"listState\"]")
+    public WebElement hariciKaziIsSurecleri_ARAMADROPDOWNISLEMSECENEGI;
+
+    @FindBy(xpath = "//input[@type=\"search\"]")
+    public WebElement hariciKaziIsSurecleri_ARAMAINPUT;
 
 
+    @FindBy(xpath = "//td[text()=\" 1510\"]")
+    public WebElement haricikaziIsSurecleri_arananbulundumu;
 
 
 
