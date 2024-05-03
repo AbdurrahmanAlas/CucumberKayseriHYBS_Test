@@ -1,0 +1,1 @@
+{"uuid":"18e87af3-664d-47d3-b420-01a815aae239","name":"Scenario: TC_0305  There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.","children":["6586c60c-7a60-41ab-8d3f-93fc379275c3"],"befores":[],"afters":[],"start":1714720068835,"stop":1714720068843}

@@ -97,3 +97,16 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
     #    * Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
     #    * yeni şirket düğmesine tıklayın
     #    * Sistem Yeni Şirket sayfasında olduğunu doğrulamalı, ardından şirket bilgilerini girmeli ve son olarak yeni şirketi sorunsuz bir şekilde eklemek için butona basmalıdır.
+
+  @tc03
+  Scenario: TC_0305  There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
+
+    Given Login to HYBS site, click the Login button and log in with your User information.
+    * User should be able to click on OPERATION MODULE
+    * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
+    * There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
+
+          # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
+          #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+          #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+          #   Firma Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.

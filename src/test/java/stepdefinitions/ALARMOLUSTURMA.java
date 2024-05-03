@@ -28,8 +28,7 @@ public class ALARMOLUSTURMA {
     public void alarmlar_linkine_tıkla_ve_yeni_alarm_linkine_git() {
 
         String[] firmalar = {
-                 "ABDULLAH AYASILI",
-                 "ADEM BÖLÜKBAŞ",
+
                  "ADEM DURANOĞLU",
                  "ADEM ÇALDAŞ - ÖZGE HAFRİYAT",
                 //"AHMET ADANALI",
