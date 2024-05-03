@@ -1379,6 +1379,63 @@ public class PageHYBS {
 
 
 
+    @FindBy(xpath = "//button[@id=\"firma_excel_button\"]")
+    public WebElement firmaListesi_EXCELBUTTON;
+
+
+    @FindBy(xpath = "//button[@id=\"arac_excel_button\"]")
+    public WebElement aracListesi_EXCELBUTTON;
+
+    @FindBy(xpath = "//button[@id=\"id_budget_add\"]")
+    public WebElement firmaListesi_MaliIslemler_BakiyeYüklemeButton;
+
+
+    @FindBy(xpath = "(//input[@type=\"number\"])[1]")
+    public WebElement firmaListesi_MaliIslemler_BakiyeYükle_TUTARINPUT;
+
+
+    @FindBy(xpath = "//a[@id=\"budgetTab\"]")
+    public WebElement firmaListesi_MaliIslemlerbutton;
+
+
+    @FindBy(xpath = "//button[@id=\"id_budget_decrease\"]")
+    public WebElement firmaListesi_MaliIslemlerBAKIYEDUSUMUBUTTON;
+
+    @FindBy(xpath = "(//input[@name=\"amount\"])[2]")
+    public WebElement firmaListesi_MaliIslemlerBAKIYEDUSUMUTUTARINPUT;
+
+
+    @FindBy(xpath = "//textarea[@id=\"notes\"]")
+    public WebElement firmaListesi_MaliIslemlerBAKIYEDUSUMUACIKLAMAINPUT;
+
+
+    @FindBy(xpath = "//button[@id=\"id_budget_check\"]")
+    public WebElement firmaListesi_MaliIslemlerODEMEKONTROLBUTTON;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

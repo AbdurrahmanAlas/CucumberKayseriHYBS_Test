@@ -1,0 +1,1 @@
+{"uuid":"4ec4b80f-cece-4c53-85f8-2879596e67fb","name":"Scenario: TC_0501 When the 'Disable/Enable (X)' button of any company is clicked, that company should be disabled.","children":["a4e6fb97-1d60-4d12-8825-e3c2f0959bd9"],"befores":[],"afters":[],"start":1714720619417,"stop":1714720619420}

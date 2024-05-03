@@ -44,7 +44,7 @@ Feature: US_006 "When the user clicks on the 'Vehicle List' button in the Busine
            #      * Açılır menüye tıkladığınızda İnşaat ve Kamu'nun seçildiğini ve ilgili kategorilerin görüntülendiğini doğrulayın.
 
 
-  @tc07
+
   Scenario: TC_0604 Verify that when clicking on the go to Company
       # Kullanici Arac listesi butonuna tikladiginda ilgili sayfa gelmelidir. VE Tasıma izin belgesi ve ATS belgesi checkboxlari görünür ve tiklanabilir olmalidir çevir
 
@@ -57,3 +57,16 @@ Feature: US_006 "When the user clicks on the 'Vehicle List' button in the Busine
       #      * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
       #      * Kullanıcı ARAÇ LİSTESİ'ne tıklayabilmelidir
       #      * Şirkete git seçeneğine tıkladığınızda bunu doğrulayın
+
+  @tc07
+  Scenario: TC_0605   There should be an EXCEL import button on the VEHİCLE List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
+
+    Given Login to HYBS site, click the Login button and log in with your User information.
+    * User should be able to click on OPERATION MODULE
+    * User should be able to click on VEHICLE LIST
+    * There should be an EXCEL import button on the Vehicle List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
+
+          # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
+          #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+          #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+          #   Vehicle Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.

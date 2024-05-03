@@ -222,4 +222,19 @@ public class US_3_Stepdefinitions {
          Assert.assertTrue(pageHYBS.yerginlerControl.isDisplayed());
 
     }
+
+    @Given("There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.")
+    public void there_should_be_an_excel_import_button_on_the_company_list_page_and_all_actıve_and_passıve_deleted_companies_in_the_system_should_be_able_to_be_exported_to_excel() {
+
+        pageHYBS.firmaListesi_EXCELBUTTON.click();
+
+        // bu kısımda EXCEL butonu olup firmaların tüm bilgilerin dökülmesi gerekiyor ancak EXCEL butonu yok.
+        // EXCEL BUTONU EKLENİNCE DOGRULAMA YAPILACAK.
+
+
+
+
+    }
+
+
 }
