@@ -15,7 +15,7 @@ public class US_1_Stepdefinitions {
     @Given("Login to HYBS site, click the Login button and log in with your User information.")
     public void loginToHYBSSiteClickTheLoginButtonAndLogInWithYourUserInformation() {
 
-        ReusableMethods.loginHYBS("abdurrahman.alas","Als.2297");
+        ReusableMethods.loginHYBS("abdurrahman.alas","Als.060619");
     }
 
 
