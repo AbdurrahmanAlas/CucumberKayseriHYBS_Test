@@ -148,7 +148,7 @@ public class PageHYBS {
     @FindBy(xpath = "//span[@class=\"select2-selection__rendered\"]")
     public WebElement firmaListesiGrupDropdown;
 
-    @FindBy(xpath = "//input[@class=\"select2-search__field\"]")
+    @FindBy(xpath = "//*[@class=\"select2-search__field\"]")
     public WebElement firmaListesiGrupDropdown_INPUT;
 
     @FindBy(xpath = "//td[text()=\"ADEM BÖLÜKBAŞ\"]")
