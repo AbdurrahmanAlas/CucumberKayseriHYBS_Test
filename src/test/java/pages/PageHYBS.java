@@ -49,6 +49,8 @@ public class PageHYBS {
     public WebElement uyarımesajı;
 
 
+    @FindBy(xpath = "//button[@id=\"yapi_ruhsat_job_list_excel\"]")
+    public WebElement yapı_ruhsat_job_list_excel;
 
 
     //4- Anaysayfalinki
@@ -223,13 +225,13 @@ public class PageHYBS {
     @FindBy(xpath = "//*[@id=\"logFrom\"]/fieldset/div/div/section[2]/div[2]/span/label")
     public WebElement blacklist;
 
-    @FindBy(xpath = "//*[@id=\"logFrom\"]/fieldset/div/div/section[2]/div[2]/span")
+    @FindBy(xpath = "//td[text()=\"SADIK DOĞALTAŞ\"]")
     public WebElement blacklistEVET;
 
     @FindBy(xpath = "//*[@id=\"logFrom\"]/fieldset/div/div/section[2]/div[3]/span/label")
     public WebElement cleancompanylist;
 
-    @FindBy(xpath = "//*[@id=\"logFrom\"]/fieldset/div/div/section[2]/div[3]/span")
+    @FindBy(xpath = "//td[text()=\"Deneme\"]")
     public WebElement cleancompanyEVET;
 
 
@@ -1385,7 +1387,7 @@ public class PageHYBS {
 
 
 
-    @FindBy(xpath = "//button[@id=\"firma_excel_button\"]")
+    @FindBy(xpath = "//button[@id=\"excel_export_company\"]")
     public WebElement firmaListesi_EXCELBUTTON;
 
 

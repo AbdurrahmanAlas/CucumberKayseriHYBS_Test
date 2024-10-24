@@ -4,20 +4,24 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
 
   @tc03
   Scenario: TC_0301  When clicking on the company list, information about the company should be listed.
+    # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
 
     Given Login to HYBS site, click the Login button and log in with your User information.
     * User should be able to click on OPERATION MODULE
     * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
 
-          # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
+
           #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
-          #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
-          #    *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
+          #    Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+          #    Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
 
 
 
   Scenario: TC0302 When the group dropdown is clicked on the company list, the relevant categories should be opened
   and when clicked to the relevant category, it should be determined that the companies belonging to that category are listed
+
+     # Senaryo: TC0302 Firma listesinde grup açılır menüsüne tıklandığında ilgili kategorilerin açılması gerekmektedir.
+          #  ve ilgili kategoriye tıklandığında o kategoriye ait firmaların listelendiğinin belirlenmesi gerekmektedir.
 
     Given Login to HYBS site, click the Login button and log in with your User information.
     * User should be able to click on OPERATION MODULE
@@ -26,8 +30,7 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
     * Verifies that category dropbox options are visible and selectable
 
 
-          # Senaryo: TC0302 Firma listesinde grup açılır menüsüne tıklandığında ilgili kategorilerin açılması gerekmektedir.
-          #  ve ilgili kategoriye tıklandığında o kategoriye ait firmaların listelendiğinin belirlenmesi gerekmektedir.
+
           #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
           #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
           #    *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
