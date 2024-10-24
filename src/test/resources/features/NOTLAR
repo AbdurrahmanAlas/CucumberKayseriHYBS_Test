@@ -1,1 +1,21 @@
 
+  TESTE BAŞLARKEN YAPILACAKLAR
+
+  1- INTELLIJ IDEA INDIR JDK KUR
+     Burda jdk kurulduktan sonra ORTAM DEGİŞKENLERİ AYARLARINI YAPMAYI UNUTMA
+  2- YENİ PROJE AC ACARKEN JAVA MAVEN SEC
+  3- Acılan projede POM.XML i doldur dependenyleri ekle
+  4- FRAMEWORKU KURMAYA BAŞLA
+  5- SRC>> TEST >> JAVA & RESOURCES
+  6- JAVA >>
+            PAGES & RUNNERS & STEPDEFİNİTONS & UTİLİTİES
+
+         PAGES : Bu bölümde locateler alınır ve her site icin bir page sayfası oluşturulur
+         RUNNERS : Bu bölümde test koşulur ve pluginler eklenebilir mesela ALLURE REPORT gibi raporlama kısımları yapılabilir .
+          glue kısmına stepdefinitions yolunu
+          features kısmına da feature ın tam yolunu yaz.
+
+  7- UTİLTİES >>
+            CONFİGREADER & DRİVER & REUSABLEMETHODS
+  8- RESOURCES >>
+            FEATURES

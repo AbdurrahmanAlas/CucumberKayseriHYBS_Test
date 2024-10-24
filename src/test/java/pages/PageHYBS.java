@@ -45,6 +45,12 @@ public class PageHYBS {
     public WebElement signInbutonu;
 
 
+    @FindBy(xpath = "//p[text()=\"Bilgileriniz hatalı lütfen bilgilerinizi kontrol ediniz\"]")
+    public WebElement uyarımesajı;
+
+
+
+
     //4- Anaysayfalinki
     @FindBy(xpath = "//*[@id=\"sidebar_nav\"]/ul/li[1]/a")
     public WebElement AnasayfaLink;

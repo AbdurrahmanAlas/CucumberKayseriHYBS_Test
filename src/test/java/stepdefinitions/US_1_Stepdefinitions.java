@@ -47,6 +47,19 @@ public class US_1_Stepdefinitions {
 
     }
 
+    @Given("Login to HYBS site, click the Login button and log in with your Wrong User information.")
+    public void login_to_hybs_site_click_the_login_button_and_log_in_with_your_wrong_user_information() {
+
+        ReusableMethods.loginHYBS("yanlısbilgi@gmail.com","yanlıspassword");
+        ReusableMethods.wait(1);
+
+
+    }
+
+    @Given("It must be verified that the warning message has arrived")
+    public void ıt_must_be_verified_that_the_warning_message_has_arrived() {
+       Assert.assertTrue(pageHYBS.uyarımesajı.isDisplayed());
+    }
 
 
 }
