@@ -103,13 +103,33 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
 
   @tc03
   Scenario: TC_0305  There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
+      # Senaryo: TC_0305 Firma Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.
 
     Given Login to HYBS site, click the Login button and log in with your User information.
     * User should be able to click on OPERATION MODULE
     * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
     * There should be an EXCEL import button on the Company List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
 
-          # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
-          #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
-          #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
-          #   Firma Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.
+
+        #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+        #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+        #    *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
+        #    * Firma Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.
+
+  @TC0306
+  Scenario: TC_0306 On the Company List page, reactivate the DEACTIVATED COMPANY
+
+    # Senaryo TC_0306 Firma Listesi sayfasında PASİFE ALINAN FİRMAYI tekrar AKTİF E getir
+
+     Given Login to HYBS site, click the Login button and log in with your User information.
+    * User should be able to click on OPERATION MODULE
+    * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
+    * On the company list page, release the External radio button and verify that the company has become inactive.
+    * Click the Deactivated button and reactivate the deactivated trial company.
+  #  * Verify that the inactive company appears as active again in the company list.
+
+      #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+      #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+      #    *Şirket listesi sayfasında Devre Dışı Bırak radyo düğmesini tıklayın ve firmanın pasif hale geldiğini doğrulayın.
+      #    *Pasife Alınanlar butonuna tıklayın ve pasif hale alınan deneme firmasını tekrar aktif hale getirin.
+      #    *Pasif hale alınan firmayı tekrar firma listesinde aktif olarak göründüğünü doğrulayın.

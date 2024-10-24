@@ -166,6 +166,13 @@ public class PageHYBS {
     public WebElement firmaListesiGrupDropdown_ILCEBELEDIYECONTROL;
 
 
+    @FindBy(xpath = "(//i[@class=\"fa fa-close\"])[1]")
+    public WebElement pasifeAlbutonuFIRMA;
+
+    @FindBy(xpath = "//button[@id=\"bot2-Msg1\"]")
+    public WebElement pasifeAlSilinsinmiEvet;
+
+
 
 
 
@@ -217,6 +224,14 @@ public class PageHYBS {
 
     @FindBy(xpath = "(//label[@class=\"onoffswitch-label\"])[1]")
     public WebElement userpassivelist;
+
+    @FindBy(xpath = "//td[text()=\"Deneme\"]")
+    public WebElement denemefirmaAdı;
+
+
+    @FindBy(xpath = "//i[@class=\"fa fa-reply\"]")
+    public WebElement AktifEtbutonu;
+
 
     @FindBy(xpath = "//*[@id=\"logFrom\"]/fieldset/div/div/section[2]/div[1]/span")
     public WebElement userpassivelistEVET;

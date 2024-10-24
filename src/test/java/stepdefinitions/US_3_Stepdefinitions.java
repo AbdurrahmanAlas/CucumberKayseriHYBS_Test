@@ -14,6 +14,7 @@ import pages.PageHYBS;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import javax.xml.crypto.KeySelector;
 import java.io.File;
 import java.security.Key;
 import java.time.Instant;
@@ -235,6 +236,44 @@ public class US_3_Stepdefinitions {
 
         // Dosyanın varlığını kontrol et
         assertTrue("Dosya indirilemedi.", file.exists());
+
+
+
+    }
+
+    @Given("On the company list page, release the External radio button and verify that the company has become inactive.")
+    public void on_the_company_list_page_release_the_external_radio_button_and_verify_that_the_company_has_become_inactive() {
+
+        pageHYBS.nameInput.sendKeys("Deneme"+ Keys.ENTER);
+        pageHYBS.pasifeAlbutonuFIRMA.click();
+        ReusableMethods.wait(2);
+        pageHYBS.pasifeAlSilinsinmiEvet.click();
+        ReusableMethods.wait(2);
+        pageHYBS.userpassivelist.click();
+        ReusableMethods.wait(2);
+        Assert.assertTrue(pageHYBS.denemefirmaAdı.isDisplayed());
+
+
+
+
+    }
+    @Given("Click the Deactivated button and reactivate the deactivated trial company.")
+    public void click_the_deactivated_button_and_reactivate_the_deactivated_trial_company() {
+
+
+        pageHYBS.AktifEtbutonu.click();
+        pageHYBS.pasifeAlSilinsinmiEvet.click();
+        ReusableMethods.wait(1);
+        pageHYBS.userpassivelist.click();
+        Assert.assertTrue(pageHYBS.denemefirmaAdı.isDisplayed());
+
+
+
+
+    }
+    @Given("Verify that the inactive company appears as active again in the company list.")
+    public void verify_that_the_inactive_company_appears_as_active_again_in_the_company_list() {
+
 
 
 
