@@ -222,7 +222,7 @@ public class PageHYBS {
     @FindBy(xpath = "//input[@class=\"select2-search__field\"]")
     public WebElement companygroupCurrentsearchtext;
 
-    @FindBy(xpath = "(//label[@class=\"onoffswitch-label\"])[1]")
+    @FindBy(xpath = "(//span[@class=\"onoffswitch\"])[1]")
     public WebElement userpassivelist;
 
     @FindBy(xpath = "//td[text()=\"Deneme\"]")
@@ -726,12 +726,12 @@ public class PageHYBS {
     public WebElement balancemovementsSearch;
 
 
-    @FindBy(xpath = "//span[@class='col-sm-4 text-center no-padding']/a[@class='btn btn-xs btn-danger']")
+    @FindBy(xpath = "(//span[@class=\"col-sm-4 text-center no-padding\"])[2]")
     public WebElement disableEnableButton;
     @FindBy(xpath = "//button[@id=\"bot2-Msg1\"]")
     public WebElement disableEnableButtonEVET;
 
-    @FindBy(xpath = "//td[text()=\"AATestCompany\"]")
+    @FindBy(xpath = "(//td[text()=\"Deneme\"])[1]")
     public WebElement userdisableEnableAACOMPANYGORUNDUMU;
 
     @FindBy(xpath = "(//span[@class=\"col-sm-4 text-center no-padding\"])[3]")

@@ -1,0 +1,1 @@
+{"uuid":"6ec0d0c7-9dde-48d9-b2fb-a637f33c5592","name":"Scenario: TC_0605   There should be an EXCEL import button on the VEHİCLE List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.","children":["b3b33804-9fd1-4090-87d3-4efd67ad4fed"],"befores":[],"afters":[],"start":1730793004176,"stop":1730793004194}
