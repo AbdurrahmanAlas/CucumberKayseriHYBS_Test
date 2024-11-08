@@ -1562,7 +1562,24 @@ public class PageHYBS {
     @FindBy(xpath = "//*[@id=\"search_form\"]/div")
     public WebElement searchBox;
 
+    @FindBy(xpath = "//input[@id=\"search_input\"]")
+    public WebElement searchYapiRuhsatliisSureci;
 
+
+    @FindBy(xpath = "//table[@id='datatable_fixed_column']//tbody//tr")
+    public List<WebElement> searchResultsRows;
+
+    // Arama sonuçlarını döndüren metod
+    public List<WebElement> getSearchResultsRows() {
+        return searchResultsRows; // İlgili arama sonucu satırlarını döndürür
+    }
+
+
+    @FindBy(xpath = "//input[@id=\"search_input\"]")
+    public WebElement tableissureci;
+
+
+    //table[@id="datatable_fixed_column"]
     //14- Homepage/Search Query
     @FindBy(xpath = "//h3[@class='branding_text']")
     public WebElement searchQuery;
