@@ -8,3 +8,5 @@
       * Click the search field and enter the relevant plot number
       * Check multiple plot numbers and print those not found in the list
 
+
+      Scenario: Control in Punishment

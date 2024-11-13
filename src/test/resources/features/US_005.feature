@@ -1,7 +1,7 @@
 
   Feature: "US_005 When the user clicks on the 'Disable/Enable Module/Company List/PASIVE' (X) button, the functionalities on the page should work properly."
-    # Kullanici İsletmeModulu/FirmaListesi/PASİFE AL(X) butonuna tikladiginda sayfadaki islevler düzgün calismalidir  bunu ingilizceye cevir
-    @tc0502
+    # Kullanici İsletmeModulu/FirmaListesi/PASİFE AL(X) butonuna tikladiginda sayfadaki islevler düzgün calismalidir
+
     Scenario: TC_0501 When the 'Disable/Enable (X)' button of any company is clicked, that company should be disabled.
       Given Login to HYBS site, click the Login button and log in with your User information.
       * User should be able to click on OPERATION MODULE
