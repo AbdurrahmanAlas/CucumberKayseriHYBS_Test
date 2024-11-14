@@ -99,4 +99,68 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
             System.out.println("All plot numbers were found in the list.");
         }
     }
+
+    @Given("The relevant plot should be verified by searching for the AdaParcel in the listt.")
+    public void the_relevant_plot_should_be_verified_by_searching_for_the_ada_parcel_in_the_listt() {
+
+        pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys("101/11");
+        pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN); // Press the search button
+
+        // Create a list of plot numbers
+        List<String> adaParselList = Arrays.asList(
+                "101/11", "6852/11"
+
+
+        );
+        List<String> notFoundAdaParselList = new ArrayList<>();
+
+        // Check each plot number
+        for (String adaParsel : adaParselList) {
+            // Clear the search box and enter the new plot number
+            pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.clear();
+            pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(adaParsel);
+            pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN);
+
+            // Wait 2 seconds after the search
+            try {
+                Thread.sleep(1000); // 2000 ms = 2 seconds
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Get all the rows from the result table
+            List<WebElement> resultRows = pageHYBS.getSearchResultsRows();
+
+            boolean isAdaParselFound = false;
+
+            // Check each row for the plot number
+            for (WebElement row : resultRows) {
+                String rowText = row.getText();
+                if (rowText.contains("Ada: " + adaParsel.split("/")[0] + " Parsel: " + adaParsel.split("/")[1])) {
+                    isAdaParselFound = true;
+                    break;
+                }
+            }
+
+            // If the plot number is not found, add it to the list of not found plot numbers
+            if (!isAdaParselFound) {
+                notFoundAdaParselList.add(adaParsel);
+            }
+        }
+
+        // Print the plot numbers that were not found
+        if (!notFoundAdaParselList.isEmpty()) {
+            System.out.println("The following plot numbers were not found in the list:");
+            for (String notFoundAdaParsel : notFoundAdaParselList) {
+                System.out.println(notFoundAdaParsel);
+            }
+        } else {
+            System.out.println("All plot numbers were found in the list.");
+        }
+
+
+    }
+
+
+
 }

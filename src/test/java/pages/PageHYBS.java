@@ -1575,6 +1575,14 @@ public class PageHYBS {
     }
 
 
+
+    @FindBy(xpath = "//table[@id='datatable_fixed_column']//tbody//tr")
+    public List<WebElement> searchResultsRowsCeza;
+
+    // Arama sonuçlarını döndüren metod
+    public List<WebElement> getSearchResultsRowsCeza() {
+        return searchResultsRows; // İlgili arama sonucu satırlarını döndürür
+    }
     @FindBy(xpath = "//input[@id=\"search_input\"]")
     public WebElement tableissureci;
 

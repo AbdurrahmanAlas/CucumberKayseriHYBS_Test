@@ -83,8 +83,6 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
 
 
 
-
-
   Scenario: TC0304 It should be determined that it is on the new company page, and the new company should be added smoothly by entering the company information
 
     Given Login to HYBS site, click the Login button and log in with your User information.
