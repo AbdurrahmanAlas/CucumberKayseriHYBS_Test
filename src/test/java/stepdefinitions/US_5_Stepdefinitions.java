@@ -43,8 +43,33 @@ public class US_5_Stepdefinitions {
     @Given("When the {string} button of any company is clicked, that company should be deleted.")
     public void when_the_button_of_any_company_is_clicked_that_company_should_be_deleted(String string) {
 
+        pageHYBS.nameInput.sendKeys("Deneme" + Keys.ENTER);
+
         pageHYBS.DELETEBUTTONFİRMALİSTESİ.click();
-        Assert.assertTrue(pageHYBS.DELETEBUTTONFİRMALİSTESİGORUNDUMU.isDisplayed());
+        ReusableMethods.wait(3);
+        pageHYBS.DELETEBUTTONFİRMALİSTESİGORUNDUMU.click();
+
+        ReusableMethods.wait(3);
+
+        pageHYBS.deleteradiobuton.click();
+
+        String expectedKelime="Deneme";
+        String actualKelime= pageHYBS.DeleteList_SilinenVarmı.getText();
+
+        Assert.assertTrue(actualKelime.contains(expectedKelime));
+
+
+
+    }
+    @Given("When you click on the Delete radio button, the deleted items should appear.")
+    public void when_you_click_on_the_delete_radio_button_the_deleted_items_should_appear() {
+
+        pageHYBS.deleteradiobuton.click();
+
+        String expectedKelime="Deneme";
+        String actualKelime= pageHYBS.DeleteList_SilinenVarmı.getText();
+
+        Assert.assertTrue(actualKelime.contains(expectedKelime));
 
 
 
@@ -73,5 +98,30 @@ public class US_5_Stepdefinitions {
         Assert.assertTrue(pageHYBS.denemefirmaAdı.isDisplayed());
 
     }
+
+
+    @Given("The user clicks on the deleted button")
+    public void the_user_clicks_on_the_deleted_button() {
+
+        pageHYBS.deleteradiobuton.click();
+        pageHYBS.nameInput.sendKeys("Deneme" +Keys.ENTER);
+        ReusableMethods.wait(2);
+        pageHYBS.AktifEtbutonu.click();
+        pageHYBS.disableEnableButtonEVET.click();
+        ReusableMethods.wait(2);
+        pageHYBS.deleteradiobuton.click();
+        ReusableMethods.wait(2);
+
+        Assert.assertTrue(pageHYBS.denemefirmaAdı.isDisplayed());
+
+
+    }
+
+
+
+
+
+
+
 
 }

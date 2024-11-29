@@ -734,6 +734,11 @@ public class PageHYBS {
     @FindBy(xpath = "(//td[text()=\"Deneme\"])[1]")
     public WebElement userdisableEnableAACOMPANYGORUNDUMU;
 
+    @FindBy(xpath = "(//span[@class=\"onoffswitch\"])[3]")
+    public WebElement deleteradiobuton;
+
+
+
     @FindBy(xpath = "(//span[@class=\"col-sm-4 text-center no-padding\"])[3]")
     public WebElement DELETEBUTTONFİRMALİSTESİ;
 
@@ -741,6 +746,8 @@ public class PageHYBS {
     @FindBy(xpath = "//button[@id=\"bot1-Msg1\"]")
     public WebElement DELETEBUTTONFİRMALİSTESİGORUNDUMU;
 
+    @FindBy(xpath = "//td[text()=\"Deneme\"]")
+    public WebElement DeleteList_SilinenVarmı;
 
     @FindBy(xpath = "(//label[@for=\"st3\"])[2]")
     public WebElement araclistesindekiTASIMACHECKBOXU;

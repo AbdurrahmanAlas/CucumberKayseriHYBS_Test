@@ -43,9 +43,30 @@
           #      * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
           #      *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
           #      * Herhangi bir firmaya ait 'Sil (U)' butonuna tıklandığında o firmanın silinmesi gerekmektedir.
+
+    @silradio
     Scenario: TC_0504 "When the 'Delete (U)' button of any company is clicked, that company should be deleted."
       Given Login to HYBS site, click the Login button and log in with your User information.
       * User should be able to click on OPERATION MODULE
       * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
-      * When the 'Delete (U)' button of any company is clicked, that company should be deleted.
+      * When you click on the Delete radio button, the deleted items should appear.
 
+
+          # Senaryo: TC_0504 "Herhangi bir şirketin 'Etkinleştir' butonuna tıklandığında o şirketin geri gelmesi gerekiyor."
+          #      HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+          #      * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+          #      *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
+          #     Sil radiobuttonuna tıklandıgında silinenlerin görünmesi grekmektedir.
+
+
+    @sillist_aktifetme
+    Scenario: TC_0505 A company that has been disabled should be able to be viewed again in the ACTIVE company list."
+      Given Login to HYBS site, click the Login button and log in with your User information.
+      * User should be able to click on OPERATION MODULE
+      * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
+      * The user clicks on the deleted button
+ # Senaryo: TC_0504 "Herhangi bir şirketin 'Etkinleştir' butonuna tıklandığında o şirketin geri gelmesi gerekiyor."
+          #      HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+          #      * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+          #      *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
+          #     Sil listesindeki silinen firmayı tekrar aktifhale getirmek gerkli
