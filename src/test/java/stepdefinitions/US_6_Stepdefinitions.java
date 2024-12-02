@@ -8,6 +8,9 @@ import pages.PageHYBS;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.File;
+
+import static org.testng.AssertJUnit.assertTrue;
 import static utilities.Driver.driver;
 
 public class US_6_Stepdefinitions {
@@ -95,6 +98,15 @@ public class US_6_Stepdefinitions {
     public void there_should_be_an_excel_import_button_on_the_vehicle_list_page_and_all_actıve_and_passıve_deleted_companies_in_the_system_should_be_able_to_be_exported_to_excel() {
 
         pageHYBS.aracListesi_EXCELBUTTON.click();
+
+        ReusableMethods.wait(5);
+        // İndirme işlemini kontrol et
+        String downloadPath = System.getProperty("user.home") + "/Downloads"; // İndirme klasörü yolu
+        File file = new File(downloadPath + "/export(10)"); // Beklenen dosya adını güncelle
+
+        // Dosyanın varlığını kontrol et
+        assertTrue("Dosya indirilemedi.", file.exists());
+
         // bu kısımda EXCEL butonu olup firmaların tüm bilgilerin dökülmesi gerekiyor ancak EXCEL butonu yok.
         // EXCEL BUTONU EKLENİNCE DOGRULAMA YAPILACAK.
 

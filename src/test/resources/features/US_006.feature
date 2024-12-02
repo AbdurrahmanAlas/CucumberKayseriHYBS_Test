@@ -66,7 +66,10 @@ Feature: US_006 "When the user clicks on the 'Vehicle List' button in the Busine
     * User should be able to click on VEHICLE LIST
     * There should be an EXCEL import button on the Vehicle List page and all ACTIVE AND PASSIVE DELETED companies in the system should be able to be exported to Excel.
 
-          # Senaryo: TC_0301 Firma listesine tıklandığında firmaya ait bilgilerin listelenmesi gerekmektedir.
-          #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
-          #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
-          #   Vehicle Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.
+        # @tc07
+        #  Senaryo: TC_0605 ARAÇ Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki tüm AKTİF VE PASİF SİLİNMİŞ firmaların Excel'e aktarılabilmesi gerekmektedir.
+        #
+        #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
+        #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
+        #    * Kullanıcı ARAÇ LİSTESİ'ne tıklayabilmelidir
+        #    * Araç Listesi sayfasında EXCEL içe aktarma butonu bulunmalı ve sistemdeki AKTİF VE PASİF SİLİNMİŞ tüm firmaların Excel'e aktarılabilmesi gerekmektedir.
