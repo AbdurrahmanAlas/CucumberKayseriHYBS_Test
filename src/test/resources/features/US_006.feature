@@ -1,3 +1,4 @@
+
 Feature: US_006 "When the user clicks on the 'Vehicle List' button in the Business Module, the functionalities on the page should work properly."
     # Kullanici İsletmeModulu/ARAC LİSTESİ butonuna tikladiginda sayfadaki islevler düzgün calismalidir
   @tc07
