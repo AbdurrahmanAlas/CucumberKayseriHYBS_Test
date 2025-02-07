@@ -2,15 +2,18 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageHYBS;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.time.Duration;
+import java.util.*;
 
-import static utilities.Driver.driver;
+
 
 public class MAKS_DATA_CONTROL_Stepdefinitions {
 
@@ -37,11 +40,17 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
         // Create a list of plot numbers
         List<String> adaParselList = Arrays.asList(
 
-                "11717/3", "5742/3", "4627/10", "123/17", "108/948", "10864/9", "1591/66", "317/15", "4210/1",
-                "10651/1", "12473/1", "2855/7", "13131/7", "284/5", "10605/9", "11106/191", "10923/7", "4851/4",
-                "10948/5", "10889/3", "10925/3", "10948/5", "10900/12", "10941/10", "10930/13", "10930/4",
-                "10909/3", "10923/7", "10923/21", "10901/7", "10923/20", "10903/9", "11752/2", "9180/7",
-                "12127/11", "10900/2", "9180/7", "6494/20"
+                "3400/1", "1748/7", "1211/2", "1351/3", "3468/1", "945/5", "3250/1", "1687/10", "613/1", "796/3",
+                "1759/2", "1987/4", "294/3", "2709/1", "2709/2", "2679/10", "2679/11", "117/286", "2640/1", "1756/5",
+                "3468/1", "2781/133", "969/7", "2781/133", "1684/22", "945/4", "2778/2", "2679/7", "2685/6", "1211/5",
+                "2649/4", "1765/12", "1331/10", "1331/10", "3413/3", "1356/1", "1007/9", "2719/6", "962/5", "2649/3",
+                "2650/2", "731/3", "2634/3", "3202/3", "3463/1", "1683/19", "1173/11", "3244/3", "3319/3", "971/7",
+                "977/3", "249/5", "1327/6", "3355/4", "1798/22", "2653/1", "2804/228", "1747/3", "2804/228", "2804/228",
+                "2679/7", "155/66", "1356/1", "117/286", "1592/12", "2679/11", "1211/5", "2026/13", "3332/2", "2182/18",
+                "1382/2", "2679/11", "2679/10", "1168/7"
+
+
+
 
         );
         List<String> notFoundAdaParselList = new ArrayList<>();
@@ -91,67 +100,56 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
         }
     }
 
-    @Given("The relevant plot should be verified by searching for the AdaParcel in the listt.")
-    public void the_relevant_plot_should_be_verified_by_searching_for_the_ada_parcel_in_the_listt() {
+    @Given("The relevant plot should be verified by searching for the AdaParcel in the list.")
+    public void the_relevant_plot_should_be_verified_by_searching_for_the_ada_parcel_in_the_list() {
 
-        pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys("101/11");
-        pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN); // Press the search button
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3)); // Max 3 saniye bekleme
 
-        // Create a list of plot numbers
-        List<String> adaParselList = Arrays.asList(
-                "101/11", "6852/11"
+        Set<String> adaParselSet = new LinkedHashSet<>(Arrays.asList(
+                "1736/2", "107/107", "107/103", "107/102", "108/30", "1239/6", "2304/1", "2489/5",
+                "4190/1", "4833/1", "2277/3", "4849/1", "4846/1", "4853/1", "2214/3", "2214/2",
+                "2207/3", "2207/10", "3024/10", "1188/2", "1698/1", "2344/3", "1091/2", "1972/3",
+                "1965/1", "1963/1", "2085/4", "760/1", "1844/1", "1148/2", "922/1", "3667/2",
+                "4755/2", "2158/2", "3683/1", "3551/11", "2048/21", "2049/6", "2049/5", "2049/3",
+                "2049/9", "2049/2", "2049/8", "209/12", "267/10", "999/7", "447/11", "987/5",
+                "2352/1", "769/3", "417/2", "2272/1", "254/32", "1422/9", "1487/1", "2201/1",
+                "698/8", "950/4", "1109/13", "1098/4", "728/3", "161/24", "161/23", "2063/6",
+                "2229/4"
+        ));
 
-
-        );
         List<String> notFoundAdaParselList = new ArrayList<>();
 
-        // Check each plot number
-        for (String adaParsel : adaParselList) {
-            // Clear the search box and enter the new plot number
+        for (String adaParsel : adaParselSet) {
+            // Önceki aramayı temizle ve yeni değer gir
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.clear();
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(adaParsel);
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN);
 
-            // Wait 2 seconds after the search
+            // İlk sonucu bekle (dinamik bekleme)
             try {
-                Thread.sleep(1000); // 2000 ms = 2 seconds
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table//tr")));
+            } catch (TimeoutException e) {
+                System.out.println("No results loaded for: " + adaParsel);
             }
 
-            // Get all the rows from the result table
+            // Sonuçları al
             List<WebElement> resultRows = pageHYBS.getSearchResultsRows();
 
-            boolean isAdaParselFound = false;
+            boolean isAdaParselFound = resultRows.stream()
+                    .anyMatch(row -> row.getText().contains(adaParsel));
 
-            // Check each row for the plot number
-            for (WebElement row : resultRows) {
-                String rowText = row.getText();
-                if (rowText.contains("Ada: " + adaParsel.split("/")[0] + " Parsel: " + adaParsel.split("/")[1])) {
-                    isAdaParselFound = true;
-                    break;
-                }
-            }
-
-            // If the plot number is not found, add it to the list of not found plot numbers
             if (!isAdaParselFound) {
                 notFoundAdaParselList.add(adaParsel);
             }
         }
 
-        // Print the plot numbers that were not found
+        // Eksik olanları yazdır
         if (!notFoundAdaParselList.isEmpty()) {
             System.out.println("The following plot numbers were not found in the list:");
-            for (String notFoundAdaParsel : notFoundAdaParselList) {
-                System.out.println(notFoundAdaParsel);
-            }
+            notFoundAdaParselList.forEach(System.out::println);
         } else {
             System.out.println("All plot numbers were found in the list.");
         }
-
-
     }
-
-
 
 }
