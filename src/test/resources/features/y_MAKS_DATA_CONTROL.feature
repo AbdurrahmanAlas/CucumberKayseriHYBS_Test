@@ -1,7 +1,7 @@
 
   Feature: MAKS_DATA_CONTROL
 
-    Scenario: Control in Building Permit processes
+     Scenario: Control in Building Permit processes
       Given Login to HYBS site, click the Login button and log in with your User information.
       * Click the 'Is Surecleri' link
       * Click the 'Building Permit Process' link
