@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageHYBS;
@@ -13,6 +14,7 @@ import pages.PageHYBS;
 import java.time.Duration;
 import java.util.*;
 
+import static utilities.Driver.driver;
 
 
 public class MAKS_DATA_CONTROL_Stepdefinitions {
@@ -21,11 +23,13 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
 
     @Given("Click the 'Is Surecleri' link")
     public void click_the_is_surecleri_link() {
+
         pageHYBS.isSurecleriLink.click();
     }
 
     @Given("Click the 'Building Permit Process' link")
     public void click_the_building_permit_process_link() {
+
         pageHYBS.yapıRuhsatlıIsSurecılink.click();
     }
 
@@ -36,104 +40,88 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
     }
 
     @Given("Check multiple plot numbers and print those not found in the list")
-    public void check_multiple_plot_numbers_and_print_those_not_found_in_the_list() {
-        // Create a list of plot numbers
-        List<String> adaParselList = Arrays.asList(
-                "5180/3", "3152/5", "128/9", "5161/2", "135/8", "3222/6", "3620/6", "4644/7", "5151/2", "229/16",
-                "3168/17", "508/1", "4784/1", "5165/1", "4989/1", "2652/10", "1340/17", "1217/2", "477/11", "5720/3",
-                "7060/11", "14001/1", "11757/2", "12303/6", "865/11", "881/4", "750/4", "548/1", "13139/2", "13473/20",
-                "12161/4", "11397/7", "865/11", "8148/3", "0/3226", "13187/14", "12680/2", "1711/4", "16337/5",
-                "632/2", "17109/1", "6826/1", "7845/4", "198/7", "13199/3", "16459/3", "13206/1", "12990/3",
-                "1440/2", "0/5595", "4224/5", "4272/15", "4418/17", "16347/2", "3885/3", "6008/7", "908/11",
-                "2998/6", "12229/1", "6827/7", "3947/5", "0/5544", "13567/8", "7870/7", "8819/1", "16166/1",
-                "639/9", "15026/1", "4484/6", "5148/2", "669/1", "5322/14", "3959/7", "4588/3", "105/7", "13835/1",
-                "4688/7", "6569/2", "2080/3", "3630/13", "3630/12", "3549/10", "2267/1", "136/5", "1148/2",
-                "2094/1", "3546/10", "3546/9", "2266/1"
+    public void adaParselKontrolEtVeBulunamayanlariYazdir() {
+        // Kontrol edilecek ada/parsel listesi
+        List<String> adaParseller = Arrays.asList(
+                "4831/5", "13253/3", "13839/1", "6515/21", "6484/8", "6480/4", "16401/1", "6494/20", "6539/9", "3648/8", "1676/4", "218/7", "1679/5", "11218/18", "5467/8", "6938/3", "14280/1",
+                "5559/12", "132/50", "4315/19", "4271/4", "4387/5", "4303/3", "4280/17", "4402/1", "4257/11", "4362/9", "4401/22", "4424/11", "4381/8", "4319/9", "4350/21", "15222/1", "8897/2",
+                "4616/12", "12610/1", "16360/5", "16886/7", "6587/11", "12937/4", "12747/11", "4603/43", "17023/1", "6602/16", "7913/1", "4679/17", "4829/14", "4924/3", "7942/13", "12747/2", "3619/15", "12747/2", "8464/11", "8464/12", "17023/1", "13328/1", "16161/1", "8562/6", "13880/1", "958/16", "599/11", "6059/5", "12149/5", "11982/1", "261/17", "236/5", "247/7", "698/7", "683/5", "556/8", "637/15", "644/6", "2596/2", "7629/1", "136/4", "148/6", "7373/4", "189/5", "8262/1", "13286/1", "408/3", "363/5", "14336/2", "206/7", "5132/4", "0/3270", "12943/5", "7256/3", "7257/7", "8720/6", "5061/4", "291/4", "14951/3", "166/4", "190/15", "13174/2", "16949/2", "1370/121", "12018/3", "12118/6", "632/4", "1448/13", "13898/4", "8106/6", "8098/16", "8150/2", "7555/90", "3948/13", "4189/16", "3948/5", "4206/19", "4087/12", "4131/7", "4043/3", "3977/10", "4006/2", "4085/8", "4201/9", "3944/9", "3945/23", "4462/23", "4032/5", "4220/8", "4208/5", "3877/11", "3825/24", "3809/9", "3690/12", "3667/15", "3902/7", "3670/15", "3940/18", "3836/5", "3661/7", "3881/11", "3670/30", "3917/3", "3791/15", "3727/10", "3908/18", "3838/1", "3780/5", "3807/20", "3694/1", "3843/5", "3657/20", "3744/6", "3675/15", "3768/16", "3789/4", "3671/9", "451/3", "16675/1", "726/11", "502/6", "717/11", "7546/1", "13137/1", "8931/14", "8931/5", "17094/1", "8622/8", "8625/8", "14332/1", "7553/6", "15094/7", "4594/7", "854/1850", "5357/9", "4279/3", "7842/1", "4177/13", "8820/5", "8459/8", "8459/8", "7322/7", "3731/1", "8549/6", "8517/1", "6297/1", "16723/1", "12683/1", "15016/1", "217/2", "217/2", "3498/13", "3498/13", "4248/2", "3725/12", "4043/9", "3657/7", "4292/15", "3951/9", "3812/1", "4280/12", "3716/3", "3767/7", "3687/4", "4401/5", "3866/4"
 
 
         );
-        List<String> notFoundAdaParselList = new ArrayList<>();
 
-        // Check each plot number
-        for (String adaParsel : adaParselList) {
-            // Clear the search box and enter the new plot number
+        List<String> bulunanlar = new ArrayList<>();
+        List<String> bulunamayanlar = new ArrayList<>();
+
+        for (String adaParsel : adaParseller) {
+            // Ada ve Parsel değerlerini ayır
+            String[] parca = adaParsel.split("/");
+            String ada = parca[0];
+            String parsel = parca[1];
+
+            // Arama kutusuna yaz ve Enter'a bas
             pageHYBS.searchYapiRuhsatliisSureci.clear();
             pageHYBS.searchYapiRuhsatliisSureci.sendKeys(adaParsel);
             pageHYBS.searchYapiRuhsatliisSureci.sendKeys(Keys.RETURN);
 
-            // Wait 2 seconds after the search
+            // Sonuçların yüklenmesi için bekle
             try {
-                Thread.sleep(2000); // 2000 ms = 2 seconds
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            // Get all the rows from the result table
-            List<WebElement> resultRows = pageHYBS.getSearchResultsRows();
+            // Arama sonuçlarını al
+            List<WebElement> satirlar = pageHYBS.getSearchResultsRows();
 
-            boolean isAdaParselFound = false;
+            // Aranan ada/parsel bulundu mu?
+            boolean bulundu = satirlar.stream()
+                    .anyMatch(satir -> satir.getText().contains("Ada: " + ada + " Parsel: " + parsel));
 
-            // Check each row for the plot number
-            for (WebElement row : resultRows) {
-                String rowText = row.getText();
-                if (rowText.contains("Ada: " + adaParsel.split("/")[0] + " Parsel: " + adaParsel.split("/")[1])) {
-                    isAdaParselFound = true;
-                    break;
-                }
-            }
-
-            // If the plot number is not found, add it to the list of not found plot numbers
-            if (!isAdaParselFound) {
-                notFoundAdaParselList.add(adaParsel);
+            if (bulundu) {
+                bulunanlar.add(adaParsel);
+            } else {
+                bulunamayanlar.add(adaParsel);
             }
         }
 
-        // Print the plot numbers that were not found
-        if (!notFoundAdaParselList.isEmpty()) {
-            System.out.println("The following plot numbers were not found in the list:");
-            for (String notFoundAdaParsel : notFoundAdaParselList) {
-                System.out.println(notFoundAdaParsel);
-            }
-        } else {
-            System.out.println("All plot numbers were found in the list.");
+        // SONUÇLARI YAZDIR
+        if (!bulunanlar.isEmpty()) {
+            System.out.println("Sistemde bulunan ada/parseller:");
+            bulunanlar.forEach(System.out::println);
         }
+
+        if (!bulunamayanlar.isEmpty()) {
+            System.out.println("Sistemde BULUNAMAYAN ada/parseller:");
+            bulunamayanlar.forEach(System.out::println);
+        }
+
+        if (bulunamayanlar.isEmpty()) {
+            System.out.println("Tüm ada/parseller sistemde bulundu.");
+        }
+    }
+
+
+    @Given("User should be able to click on OPERATION MODULE")
+    public void user_should_be_able_to_click_on_operatıon_module() {
+
+       pageHYBS.isletmeModuluLink.click();
+
+    }
+    @Given("User should be able to click on CEZA_tAAHHUT_LIST")
+    public void user_should_be_able_to_click_on_ceza_t_aahhut_lıst() {
+
+        pageHYBS.cezaTaahhütCEZA_LIST.click();
+
     }
 
     @Given("The relevant plot should be verified by searching for the AdaParcel in the list.")
     public void the_relevant_plot_should_be_verified_by_searching_for_the_ada_parcel_in_the_list() {
 
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3)); // Max 3 saniye bekleme
-
         Set<String> adaParselSet = new LinkedHashSet<>(Arrays.asList(
-                "4296/12", "217/3", "217/3", "8348/11", "225/10", "12498/6", "238/8", "7476/1", "5847/6", "174/3",
-                "13734/3", "629/15", "15094/2", "3149/1", "13734/4", "13734/4", "5148/12", "3424/9", "6363/20", "6587/8",
-                "238/8", "5113/15", "8474/11", "447/4", "174/3", "5757/2", "12582/1", "6827/7", "12582/1", "8507/2",
-                "16364/1", "7535/10", "13562/1", "6938/6", "424/5", "12582/1", "3848/8", "4940/5", "4351/10", "3777/9",
-                "15823/5", "16298/1", "1434/6", "12639/1", "14334/10", "14334/10", "3574/7", "5848/6", "5558/11", "7026/9",
-                "497/3", "8356/16", "112/7", "13519/6", "363/7", "16729/1", "7323/5", "3595/18", "8658/7", "6101/4",
-                "612/7", "358/8", "414/5", "7789/17", "7789/10", "5000/2", "5891/5", "7535/10", "8458/14", "7784/5",
-                "198/12", "198/12", "6055/6", "5710/14", "8911/1", "12741/9", "5744/12", "2689/9", "4588/3", "2813/10",
-                "3436/12", "6675/16", "13842/1", "4919/13", "7810/12", "5006/24", "661/6", "12003/7", "7617/7", "7617/7",
-                "153/3", "307/3", "12563/12", "8464/5", "3574/10", "4594/10", "7868/20", "629/16", "16726/3", "6868/3",
-                "8458/2", "8458/1", "13842/2", "8348/11", "4943/9", "1670/10", "8458/3", "146/1", "7718/7", "8856/2",
-                "14986/1", "14986/1", "13843/8", "4288/6", "7844/2", "12883/2", "7868/20", "7874/15", "5104/2", "6852/11",
-                "13849/5", "5104/2", "14118/1", "13200/20", "12180/3", "238/20", "236/14", "14306/1", "12998/6", "12004/9",
-                "5453/2", "12639/1", "960/6", "5757/1", "12262/1", "15201/7", "986/5", "6280/3", "5400/20", "6797/8",
-                "6797/8", "146/1", "16364/2", "12216/3", "15217/1", "15217/1", "12004/14", "4595/7", "16476/1", "6773/3",
-                "5111/5", "13347/4", "3595/18", "178/8", "13288/7", "12984/10", "15025/4", "484/3", "128/6", "15616/11",
-                "3572/11", "5271/12", "12617/5", "12617/5", "5850/3", "2956/4", "15239/1", "12687/3", "14912/8", "8139/10",
-                "1438/9", "13354/4", "7923/4", "3574/1", "4939/17", "13724/4", "5991/20", "339/13", "5953/8", "669/1",
-                "198/7", "6352/3", "499/8", "12990/3", "7873/2", "7873/2", "3572/11", "7808/10", "7808/10", "7808/10",
-                "13717/1", "8222/7", "8426/4", "6658/3", "177/3", "6051/13", "6051/13", "8658/7", "792/4", "226/16",
-                "4603/40", "3595/19", "5991/20", "3595/3", "7512/3", "2368/29", "8464/5", "6079/9", "294/1", "6366/5",
-                "5050/16", "5050/15", "5050/15", "6587/2", "5814/15", "7323/5", "12539/9", "13981/1", "8055/11", "237/1",
-                "8376/2", "14306/1", "263/8", "12957/1", "399/17", "8348/11", "839/1", "363/7", "297/3", "5084/1",
-                "12004/9", "15130/1", "5392/1", "101/11", "4917/12", "4622/2", "8855/1", "14072/3", "107/7", "14911/7",
-                "15239/4", "5148/2", "13839/2", "15833/7", "7515/16", "7373/2", "3594/4", "118/3", "972/19", "16151/6",
-                "466/1", "499/8", "498/6", "15304/1", "14119/6", "16906/2", "7495/5", "14072/3", "6417/5", "13839/3",
-                "13358/3", "108/7", "401/5", "178/5", "7809/16", "6385/5", "6737/4", "5991/1", "395/10", "15239/4",
-                "12967/2", "8041/7", "181/17", "5905/19", "13519/6", "7495/5", "6737/6", "16133/1", "198/8", "7877/9",
-                "3197/6", "4690/3", "13187/14", "14893/12", "1454/6", "267/1", "8946/4", "7837/14", "12959/3", "12457/11"
+                "7078/13", "13118/10", "12378/1", "6531/14", "12369/11", "154/6", "10854/5", "518/3", "190/9", "184/8",
+                "5899/2"
+
 
         ));
 
@@ -145,14 +133,8 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(adaParsel);
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN);
 
-            // İlk sonucu bekle (dinamik bekleme)
-            try {
-                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table//tr")));
-            } catch (TimeoutException e) {
-                System.out.println("No results loaded for: " + adaParsel);
-            }
 
-            // Sonuçları al
+            // İlk sonucu al
             List<WebElement> resultRows = pageHYBS.getSearchResultsRows();
 
             boolean isAdaParselFound = resultRows.stream()
@@ -161,9 +143,13 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
             if (!isAdaParselFound) {
                 notFoundAdaParselList.add(adaParsel);
             }
+
+
+
+
         }
 
-        // Eksik olanları yazdır
+// Eksik olanları yazdır
         if (!notFoundAdaParselList.isEmpty()) {
             System.out.println("The following plot numbers were not found in the list:");
             notFoundAdaParselList.forEach(System.out::println);
@@ -171,5 +157,4 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
             System.out.println("All plot numbers were found in the list.");
         }
     }
-
-}
+    }

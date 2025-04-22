@@ -859,7 +859,7 @@ public class PageHYBS {
     @FindBy(xpath = "//button[text()=\"Ara\"]")
     public WebElement cezaTaahhütSEARCH_arabutton;
 
-    @FindBy(xpath = "(//div[@id=\"wid-id-x\"])[2]")
+    @FindBy(xpath = "//*[text()=\"Ceza/Taahhüt Listesi\"]")
     public WebElement cezaTaahhütCEZA_LIST;
 
     @FindBy(xpath = "//input[@type=\"search\"]")
