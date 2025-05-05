@@ -6,7 +6,7 @@
       * Click the 'Is Surecleri' link
       * Click the 'Building Permit Process' link
      # * Click the search field and enter the relevant plot number
-      * Check multipl e plot numbers and print those not found in the list
+      * Check multiple plot numbers and print those not found in the list
 
 
       @cezat
