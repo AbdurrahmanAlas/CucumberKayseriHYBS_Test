@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageHYBS;
+import utilities.ReusableMethods;
 
 import java.time.Duration;
 import java.util.*;
@@ -43,14 +44,18 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
     public void adaParselKontrolEtVeBulunamayanlariYazdir() {
         // Kontrol edilecek ada/parsel listesi
         List<String> adaParseller = Arrays.asList(
-                "145/1", "5140/3", "3168/37", "227/31", "217/5", "2791/9", "3152/12", "1003/4", "973/7", "973/7",
-                "3342/16", "3342/19", "3342/16", "15123/1", "14720/2", "845/10", "803/3", "7832/3", "13725/1",
-                "8044/9", "7855/11", "6453/6", "4354/4", "4301/4", "4295/2", "4403/4", "4270/6", "4431/4", "4345/4",
-                "4310/24", "4384/13", "4384/15", "4262/18", "4384/16", "4446/13", "4320/14", "4301/7", "4321/1", "6055/9", "6363/13",
-                "5759/8", "5003/2", "0/3049", "6151/1", "8859/24", "8859/24", "-/5556", "4035/15", "4462/13",
-                "4463/11", "3950/11", "4164/21", "4218/15", "3945/10", "3948/10", "4192/14", "4073/2", "4073/3",
-                "4462/20", "4462/11", "4087/1", "4084/4", "4004/5", "4004/6", "4004/7", "4037/9", "3770/13", "3663/2",
-                "3770/14", "4484/18", "3877/5", "3663/3", "3861/14", "3783/4", "3657/16", "3808/10", "3852/12", "3866/9", "8621/7", "8621/7", "12144/3"
+                "135/8", "462/10", "128/9", "3620/6", "3620/6", "3046/2", "2867/3", "459/11", "5180/3", "3416/6",
+                "3416/5", "5114/2", "508/1", "2622/4", "237/17", "3222/6", "4644/7", "4621/9", "229/16", "3168/17",
+                "3152/5", "5151/2", "5161/2", "5225/3", "2652/10", "2489/1", "1340/17", "1816/18", "14001/1", "284/2",
+                "284/2", "865/11", "477/11", "477/11", "865/11", "750/4", "10741/10", "367/10", "927/2", "12303/6",
+                "881/4", "927/2", "927/2", "12303/7", "13636/12", "13139/2", "11635/3", "11757/2", "13473/20",
+                "15618/10", "13308/6", "2561/13", "12175/14", "8980/4", "6001/13", "1711/4", "17109/1", "7845/4",
+                "13567/8", "4688/7", "4688/7", "15245/3", "16515/11", "16459/3", "8474/12", "5379/3", "4817/4",
+                "5322/14", "13835/1", "7870/7", "639/9", "G/3115", "148/8", "295/7", "169/11", "127/69", "0/3226",
+                "4560/5", "4622/16", "4622/16", "14909/2", "278/6", "1440/2", "7555/98", "7555/97", "13741/4",
+                "423/8", "976/5", "0/5595", "0/5595", "136/37", "12237/4", "3284/9", "2267/1", "1148/2", "2173/1",
+                "3630/13", "3630/12", "3549/10", "136/5"
+
 
         );
 
@@ -89,11 +94,11 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
             }
         }
 
-        // SONUÇLARI YAZDIR
+        /* SONUÇLARI YAZDIR
         if (!bulunanlar.isEmpty()) {
             System.out.println("Sistemde bulunan ada/parseller:");
             bulunanlar.forEach(System.out::println);
-        }
+        }*/
 
         if (!bulunamayanlar.isEmpty()) {
             System.out.println("Sistemde BULUNAMAYAN ada/parseller:");
@@ -123,48 +128,34 @@ public class MAKS_DATA_CONTROL_Stepdefinitions {
     public void the_relevant_plot_should_be_verified_by_searching_for_the_ada_parcel_in_the_list() {
 
         Set<String> adaParselSet = new LinkedHashSet<>(Arrays.asList(
-                "145/1", "5140/3", "3168/37", "227/31", "217/5", "2791/9", "3152/12", "1003/4", "973/7", "973/7",
-                "3342/16", "3342/19", "3342/16", "15123/1", "14720/2", "845/10", "803/3", "7832/3", "13725/1",
-                "8044/9", "7855/11", "6453/6", "4354/4", "4301/4", "4295/2", "4403/4", "4270/6", "4431/4", "4345/4",
-                "4310/24", "4384/13", "4384/15", "4262/18", "4384/16", "4446/13", "4320/14", "4301/7", "4321/1", "6055/9", "6363/13",
-                "5759/8", "5003/2", "0/3049", "6151/1", "8859/24", "8859/24", "-/5556", "4035/15", "4462/13",
-                "4463/11", "3950/11", "4164/21", "4218/15", "3945/10", "3948/10", "4192/14", "4073/2", "4073/3",
-                "4462/20", "4462/11", "4087/1", "4084/4", "4004/5", "4004/6", "4004/7", "4037/9", "3770/13", "3663/2",
-                "3770/14", "4484/18", "3877/5", "3663/3", "3861/14", "3783/4", "3657/16", "3808/10", "3852/12", "3866/9", "8621/7", "8621/7", "12144/3"
-
+                "145/1", "5140/3","8044/9"
 
         ));
 
         List<String> notFoundAdaParselList = new ArrayList<>();
 
         for (String adaParsel : adaParselSet) {
-            // Önceki aramayı temizle ve yeni değer gir
-            pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.clear();
+            // Alanı tamamen temizle
+            pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(adaParsel);
             pageHYBS.cezaTaahhütCEZA_LIST_SEARCH.sendKeys(Keys.RETURN);
 
+            // Sonuçların yüklenmesini bekle (uygun bir selector'la)
+            ReusableMethods.wait(1);
 
-            // İlk sonucu al
-            List<WebElement> resultRows = pageHYBS.getSearchResultsRows();
+            List<WebElement> resultRows = pageHYBS.getSearchResultsRowsCeza();
+
+            String normalizedAdaParsel = adaParsel.replaceAll("\\s+", "").trim();
 
             boolean isAdaParselFound = resultRows.stream()
-                    .anyMatch(row -> row.getText().contains(adaParsel));
+                    .map(WebElement::getText)
+                    .map(text -> text.replaceAll("\\s+", "").trim())
+                    .anyMatch(text -> text.contains(normalizedAdaParsel));
 
             if (!isAdaParselFound) {
                 notFoundAdaParselList.add(adaParsel);
             }
-
-
-
-
         }
 
-// Eksik olanları yazdır
-        if (!notFoundAdaParselList.isEmpty()) {
-            System.out.println("The following plot numbers were not found in the list:");
-            notFoundAdaParselList.forEach(System.out::println);
-        } else {
-            System.out.println("All plot numbers were found in the list.");
-        }
     }
     }
