@@ -1,0 +1,90 @@
+
+US_007 FEATURE ARAC KİRALAMA MODULU TC0701 VE TC 0702 BUG LI
+US_005 FEATURE 0501 BUG VAR PASİFE ALINIYOR ANCAK TEKRAR PASİFTEN AKTİFE CEKİLEMİYOR
+US_009 FEATURE 0901 BUG VAR FİRMA SEÇİLİYOR ANCAK FİRMAYA AİT ARAC GELMİYOR TÜM ARAÇLAR GELİYOR.
+
+
+
+*****************************
+
+   // "Görüntüle" butonlarını bul
+        List<WebElement> viewButtons = driver.findElements(By.cssSelector("a[data-original-title='Görüntüle']"));
+
+        // Her bir "Görüntüle" butonu için döngü
+        for (int i = 0; i < viewButtons.size(); i++) {
+            // Butonu tıkla
+            WebElement viewButton = viewButtons.get(i);
+            viewButton.click();
+
+            // Ana pencereyi kaydet
+            String mainWindowHandle = driver.getWindowHandle();
+
+            // Tüm pencere kollarını al
+            Set<String> allWindowHandles = driver.getWindowHandles();
+            for (String handle : allWindowHandles) {
+                // Ana pencere dışındaki bir pencereye geçiş yap
+                if (!handle.equals(mainWindowHandle)) {
+                    driver.switchTo().window(handle);
+                    break;
+                }
+            }
+
+            // Belge yüklenmesini bekle
+            ReusableMethods.wait(3);
+
+            // Firma adını al
+            String companyName = getCompanyName(driver);
+
+            // Firma adına göre klasör oluştur
+            File companyDirectory = new File("pdf_files/" + companyName);
+            if (!companyDirectory.exists()) {
+                companyDirectory.mkdir();
+            }
+
+            // PDF dosyasının URL'sini al
+            String pdfUrl = driver.getCurrentUrl();
+
+            // PDF dosyasını indir ve ilgili klasöre kaydet
+            String fileName = "pdf_files/" + companyName + "/document_" + i + ".pdf";
+            downloadPDF(pdfUrl, fileName);
+
+            // Yeni pencereyi kapat
+            driver.close();
+
+            // Ana pencereye geri dön
+            driver.switchTo().window(mainWindowHandle);
+        }
+
+        // WebDriver'ı kapat
+        driver.quit();
+    }
+
+    // PDF dosyasını indiren metot
+    public static void downloadPDF(String pdfUrl, String fileName) {
+        try (InputStream in = new URL(pdfUrl).openStream();
+             FileOutputStream fos = new FileOutputStream(fileName)) {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            // PDF dosyasını indir
+            while ((bytesRead = in.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Firma adını almak için yardımcı metot
+    public static String getCompanyName(WebDriver driver) {
+        // Sayfanın içeriğini al
+        String pageSource = driver.getPageSource();
+        // İçerikte firma adını içeren bir ifade arayın
+        // Örnek olarak, firmanın adı "Company Name" olsun
+        if (pageSource.contains("Firma")) {
+            return "Firma";
+        }
+        // İçerikte firma adını içeren bir ifade bulunamazsa, varsayılan değeri döndürün
+        return "Unknown Company";
+
+    }
+    **************************
