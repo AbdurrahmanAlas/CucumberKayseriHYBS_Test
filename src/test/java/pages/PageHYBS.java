@@ -57,7 +57,7 @@ public class PageHYBS {
     public WebElement isletmeModuluLink;
 
 
-    //6- IsletmeModuluLink
+    //6- TalepListeleriLink
     @FindBy(xpath = "//*[@id=\"sidebar_nav\"]/ul/li[4]/a/span")
     public WebElement TalepListeleriLink;
 

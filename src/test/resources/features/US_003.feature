@@ -68,14 +68,14 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
 
 
   Scenario: TC0304 Searchboxlara should be listed according to the categories to be searched when you are clicking on ong by one.
-
+   #Senaryo: TC0304 Searchboxlara tek tek tıkladığınızda aranacak kategorilere göre listelenmesi gerekmektedir.
     Given Login to HYBS site, click the Login button and log in with your User information.
     * User should be able to click on OPERATION MODULE
     * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
     * When the user clicks on the SearchBoxes one by one, a listing should be made according to the categories to be searched."
 
 
-        #Senaryo: TC0304 Searchboxlara tek tek tıkladığınızda aranacak kategorilere göre listelenmesi gerekmektedir.
+
         #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
         #    * Kullanıcı İŞLEtME MODÜLÜ'ne tıklayabilmelidir
         #    *Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
@@ -84,7 +84,7 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
 
 
   Scenario: TC0304 It should be determined that it is on the new company page, and the new company should be added smoothly by entering the company information
-
+    # Senaryo: TC0304 Yeni şirket sayfasında olduğu belirlenmeli ve şirket bilgileri girilerek yeni şirket sorunsuz bir şekilde eklenmelidir.
     Given Login to HYBS site, click the Login button and log in with your User information.
     * User should be able to click on OPERATION MODULE
     * The user clicks on the COMPANY LIST link and goes to the relevant page, and it is tested that the information about the companies is listed."
@@ -92,7 +92,7 @@ Feature: US_003 When the user has climbed to the company, the relevant titles sh
     * The system should confirm that it is on the New Company page,then enter the company information, and finally press the button to add the new company seamlessly.
 
 
-    # Senaryo: TC0304 Yeni şirket sayfasında olduğu belirlenmeli ve şirket bilgileri girilerek yeni şirket sorunsuz bir şekilde eklenmelidir.
+
     #    HYBS sitesine giriş yapıldıktan sonra Giriş butonuna tıklayın ve Kullanıcı bilgilerinizle giriş yapın.
     #    * Kullanıcı İŞLEM MODÜLÜ'ne tıklayabilmelidir
     #    * Kullanıcı FİRMA LİSTESİ linkine tıklayıp ilgili sayfaya gider ve firmalara ait bilgilerin listelenip listelenmediği test edilir."
